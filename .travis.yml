@@ -1,0 +1,10 @@
+sudo: required
+
+services:
+  - docker
+  
+before_install:
+  - docker build -t anotherapj/frontend -f Dockerfile.dev .
+
+scripts:
+  - docker run anotherapj/frontend npm run test -- --coverage
